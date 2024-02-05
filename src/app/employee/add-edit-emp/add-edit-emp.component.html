@@ -1,0 +1,54 @@
+
+    <div class="form-group row-sm-4" >
+        <label class="col-sm-4 m-1 col-form-label">Employee Name</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)]="EmployeeName"
+            placeholder="Enter Employee Name">
+        </div>
+    
+        <label class="col-sm-4 m-1 col-form-label">Department Name</label>
+        <div class="col-sm-8">
+            <select class="form-control" [(ngModel)]="Department"  >
+                <option>--Select--</option>
+                <option *ngFor="let depName of DepartmentsList">
+                    {{depName.DepartmentName}}
+                </option>
+            </select>
+    </div>
+    <label class="col-sm-4 m-1 col-form-label">Department id</label>
+    <div class="col-sm-8">
+        <select class="form-control" [(ngModel)]="DepartmentId">
+            <option>--Select--</option>
+            <option *ngFor="let depId of SecondDepartmentsList">
+                {{depId.DepartmentId}}
+            </option>
+        </select>
+</div>
+
+    
+    <label class="col-sm-4 m-1 col-form-label">RG</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" [(ngModel)]="Rg" maxlength="9" minlength="9" placeholder="Rg">
+        </div>
+    
+    <div class="ml-3 bd-highlight m-3" style="width: 40%;">
+        <img [src]="PhotoFilePath" height="230px;" width="200px;">
+        <input type="file" (change)="uploadPhoto($event)" class="mt-2">
+    </div>
+
+    <div class="d-grid gap-2 d-md-block m-4">
+        <button (click)="addEmployee()" *ngIf="emp.EmployeeId==0" class="btn btn-dark col-sm-2">
+            Add
+        </button>
+    
+        <button (click)="updateEmployee()" *ngIf="emp.EmployeeId!=0" class="btn btn-dark">
+            Update
+        </button>
+       
+      </div>
+ 
+    
+    
+
+
+    
